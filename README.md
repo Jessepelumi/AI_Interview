@@ -36,14 +36,14 @@ inside that codebase, update `main` and create a dedicated solution branch befor
 editing:
 
 ```bash
-cd CheckoutQuotes
 git switch main
 git pull --ff-only
-git switch -c your_name/solvecheckoutquotes
+git switch -c your_name-solutions
+cd CheckoutQuotes
 ```
 
 Replace `your_name` with your name or account handle. Solution branches follow
-`<contributor_name>/solve<codebasename>` in lowercase.
+`<contributor_name>-solutions` in lowercase.
 
 Git branches apply to the entire repository even when created from an exercise
 directory. Working from inside the selected codebase simply keeps the session
