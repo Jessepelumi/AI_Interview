@@ -1,24 +1,45 @@
 # Django debugging interview lab
 
-This folder contains three independent, intentionally defective Django codebases.
-Each one models the kind of maintenance task where a client reports incorrect
-behaviour and the candidate must establish the contract, locate the defect, make
-the smallest safe change, and prove it with tests.
+This repository contains independent, intentionally defective Django codebases.
+Each exercise models a production-maintenance interview: understand an unfamiliar
+system, infer the intended behaviour, locate the defect, make the smallest correct
+change, and prove the repair with tests.
+
+## Repository rule
+
+The `main` branch is problem-only. It must always contain the unsolved version of
+every exercise.
+
+- New problems may be contributed to `main` through a pull request.
+- Solutions must never be committed or merged into `main`.
+- Solve an exercise on a separate branch in your fork. A local uncommitted
+  solution is also fine, although creating a branch first is safer.
+- Private answer keys or solution notes belong in the ignored `.solutions/`
+  directory, not in tracked files.
 
 ## Exercises
 
+Every exercise directory is named in PascalCase as
+`<Contributor><CodebaseName>`, for example `JesseBookingRace`. This keeps the
+contributor prefix visible while using one consistent folder-naming convention.
+
 | Exercise | Primary surface | Suggested time |
 | --- | --- | ---: |
-| `01_checkout_quotes` | Business rules, money and rounding | 30–40 minutes |
-| `02_clinic_availability` | ORM aggregation and tenant isolation | 40–50 minutes |
-| `03_credit_webhooks` | Transactions, units and safe retries | 45–60 minutes |
+| [`JesseCheckoutQuotes`](JesseCheckoutQuotes/) | Business rules, money and rounding | 30–40 minutes |
+| [`JesseClinicAvailability`](JesseClinicAvailability/) | ORM aggregation and tenant isolation | 40–50 minutes |
+| [`JesseCreditWebhooks`](JesseCreditWebhooks/) | Transactions, units and safe retries | 45–60 minutes |
 
-Each project is standalone. Start with its `README.md`; do not open
-`_interviewer_notes` until you want the answer key.
+## Solve an exercise
 
-## Common setup
+Fork the repository, clone your fork, and create a solution branch before editing:
 
-Python 3.11 or newer is recommended. From this folder:
+```bash
+git switch main
+git pull --ff-only
+git switch -c YOUR_NAME/solve-JesseCheckoutQuotes
+```
+
+Create a virtual environment from the repository root:
 
 ```bash
 python3 -m venv .venv
@@ -26,34 +47,91 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Then enter one exercise and run:
+Enter the exercise and establish the starting failure:
 
 ```bash
+cd JesseCheckoutQuotes
 python manage.py test
 ```
 
-The starting suites are expected to contain failures. A correctly repaired
-exercise has a fully passing suite.
+The starting suite is intentionally not green. After repairing the defect, the
+complete exercise suite should pass. Add at least one regression or edge-case
+test, then commit only to your solution branch. Do not open a solution pull
+request against `main`.
 
-## Suggested interview rules
+If you want to share a solution, push the solution branch to your fork and share
+a link to that branch without merging it into the upstream repository.
 
-1. Treat tests and the written acceptance criteria as evidence, not as permission
-   to hard-code their examples.
+## Contribute a new problem
+
+Problem contributions are welcome on `main`.
+
+1. Fork the repository and branch from the latest unsolved `main`:
+
+   ```bash
+   git switch main
+   git pull --ff-only
+   git switch -c YOUR_NAME/add-booking-race-problem
+   ```
+
+2. Add one self-contained PascalCase directory named
+   `<YourName><DescriptiveCodebaseName>`, for example `JesseBookingRace`.
+
+3. Include, at minimum:
+
+   - a project `README.md` with the client report, behavioural contract,
+     suggested time, setup steps, and task;
+   - the application code and migrations needed to run from a fresh clone;
+   - a local `requirements.txt` with pinned dependencies;
+   - deterministic tests that expose the intended defect;
+   - at least one passing control test, so the project is demonstrably runnable.
+
+4. Keep the exercise realistic and bounded. The intended repair should normally
+   fit within a 30–60 minute interview and should not require network services,
+   private credentials, or paid APIs.
+
+5. Verify the clean starting state. Record the number and names of expected
+   failures in the pull-request description. Failures must come from the exercise,
+   not from missing dependencies, broken migrations, or invalid scaffolding.
+
+6. Submit the unsolved codebase in a pull request to `main`. Do not include the
+   fix, an answer key, a solution patch, revealing code comments, or generated
+   files such as databases and `__pycache__` directories.
+
+Reviewers should validate the proposed repair privately on a temporary branch or
+worktree, then discard it before merging only the unsolved problem into `main`.
+
+Because failures are intentional, do not add a root CI job that expects every
+exercise suite to pass. Repository-level validation should check setup, Django
+configuration and migrations, then compare each exercise with its documented
+expected failures. A permanently red default-branch check hides genuine breakage.
+
+## Contribution checklist
+
+Before requesting review, confirm that:
+
+- the directory follows `<Contributor><CodebaseName>` PascalCase;
+- setup works from a fresh virtual environment;
+- Django system checks and migrations are valid;
+- the documented failing tests fail for the intended business defect;
+- unaffected/control tests pass;
+- no solution or answer key is tracked; and
+- no existing exercise was renamed or reformatted unnecessarily.
+
+## Interview rules
+
+1. Treat tests and acceptance criteria as evidence, not as permission to
+   hard-code their examples.
 2. Do not change an assertion merely to make the suite green. If a test appears
-   wrong, explain the contract conflict before changing it.
-3. Prefer the smallest production-code change that covers the general case.
+   wrong, explain the contract conflict first.
+3. Prefer the smallest production-code change that handles the general case.
 4. Add at least one useful test beyond the supplied regression tests.
-5. Finish by explaining the root cause, why the fix is safe, and what remains a
-   production risk.
+5. Finish by explaining the root cause, why the fix is safe, and what production
+   risk remains.
 
-## Bounded AI-assistance option
+## Bounded AI assistance
 
-An interviewer can allow AI while preserving the signal by requiring the
-candidate to:
-
-- drive all investigation and choose which files or errors to share;
-- keep a short log of prompts and resulting decisions;
-- reject or amend suggestions they cannot explain;
-- write or improve at least one test themselves; and
-- give the final root-cause and risk explanation without AI.
-
+An interviewer can allow AI while preserving the signal by requiring candidates
+to drive the investigation, keep a short prompt log, reject suggestions they
+cannot explain, write or improve at least one test themselves, and present the
+final root-cause and risk analysis unaided.

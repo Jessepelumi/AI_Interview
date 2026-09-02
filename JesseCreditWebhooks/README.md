@@ -36,5 +36,5 @@ Run the suite with:
 python manage.py test
 ```
 
-Do not read the top-level `_interviewer_notes` until you want the solution.
-
+Solutions are intentionally not stored on `main`. Create a separate branch in
+your fork before making changes.
