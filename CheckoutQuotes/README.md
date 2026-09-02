@@ -1,5 +1,7 @@
 # Exercise 1: Checkout quote totals
 
+Contributed by Jesse.
+
 Suggested time: 30–40 minutes.
 
 ## Client report

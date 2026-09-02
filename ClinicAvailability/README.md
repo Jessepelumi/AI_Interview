@@ -1,5 +1,7 @@
 # Exercise 2: Clinic appointment availability
 
+Contributed by Jesse.
+
 Suggested time: 40–50 minutes.
 
 ## Client report

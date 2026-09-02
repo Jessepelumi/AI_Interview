@@ -1,6 +1,8 @@
 ## Problem contribution
 
-Exercise directory: `ContributorCodebaseName`
+Exercise directory: `CodebaseName`
+
+Problem contributor:
 
 Briefly describe the client-visible behaviour and intended interview scope.
 
@@ -11,7 +13,8 @@ List the expected failing tests and confirm that unrelated/control tests pass.
 ## Checklist
 
 - [ ] This contributes an unsolved problem, not a solution.
-- [ ] The directory follows `<Contributor><CodebaseName>` PascalCase.
+- [ ] The directory is a unique PascalCase problem name.
+- [ ] The exercise README identifies the contributor.
 - [ ] The exercise includes its brief, setup instructions, pinned dependencies,
       migrations, and deterministic tests.
 - [ ] The failure is caused by the intended defect rather than broken setup.

@@ -1,5 +1,7 @@
 # Exercise 3: Account-credit webhooks
 
+Contributed by Jesse.
+
 Suggested time: 45–60 minutes.
 
 ## Client report

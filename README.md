@@ -19,15 +19,15 @@ every exercise.
 
 ## Exercises
 
-Every exercise directory is named in PascalCase as
-`<Contributor><CodebaseName>`, for example `JesseBookingRace`. This keeps the
-contributor prefix visible while using one consistent folder-naming convention.
+Every exercise directory uses only the PascalCase problem name, for example
+`BookingRace`. Contributor attribution belongs in the exercise README and the
+table below rather than in the folder name.
 
-| Exercise | Primary surface | Suggested time |
-| --- | --- | ---: |
-| [`JesseCheckoutQuotes`](JesseCheckoutQuotes/) | Business rules, money and rounding | 30–40 minutes |
-| [`JesseClinicAvailability`](JesseClinicAvailability/) | ORM aggregation and tenant isolation | 40–50 minutes |
-| [`JesseCreditWebhooks`](JesseCreditWebhooks/) | Transactions, units and safe retries | 45–60 minutes |
+| Exercise | Contributor | Primary surface | Suggested time |
+| --- | --- | --- | ---: |
+| [`CheckoutQuotes`](CheckoutQuotes/) | Jesse | Business rules, money and rounding | 30–40 minutes |
+| [`ClinicAvailability`](ClinicAvailability/) | Jesse | ORM aggregation and tenant isolation | 40–50 minutes |
+| [`CreditWebhooks`](CreditWebhooks/) | Jesse | Transactions, units and safe retries | 45–60 minutes |
 
 ## Solve an exercise
 
@@ -36,11 +36,14 @@ inside that codebase, update `main` and create a dedicated solution branch befor
 editing:
 
 ```bash
-cd JesseCheckoutQuotes
+cd CheckoutQuotes
 git switch main
 git pull --ff-only
-git switch -c YOUR_NAME/solve-JesseCheckoutQuotes
+git switch -c your_name/solvecheckoutquotes
 ```
+
+Replace `your_name` with your name or account handle. Solution branches follow
+`<contributor_name>/solve<codebasename>` in lowercase.
 
 Git branches apply to the entire repository even when created from an exercise
 directory. Working from inside the selected codebase simply keeps the session
@@ -77,16 +80,16 @@ Problem contributions are welcome on `main`.
    ```bash
    git switch main
    git pull --ff-only
-   git switch -c YOUR_NAME/add-booking-race-problem
+   git switch -c your_name/addbookingrace
    ```
 
-2. Add one self-contained PascalCase directory named
-   `<YourName><DescriptiveCodebaseName>`, for example `JesseBookingRace`.
+2. Add one self-contained directory named only for the problem in PascalCase,
+   for example `BookingRace`. Choose a unique, descriptive name.
 
 3. Include, at minimum:
 
-   - a project `README.md` with the client report, behavioural contract,
-     suggested time, setup steps, and task;
+   - a project `README.md` crediting the contributor and containing the client
+     report, behavioural contract, suggested time, setup steps, and task;
    - the application code and migrations needed to run from a fresh clone;
    - a local `requirements.txt` with pinned dependencies;
    - deterministic tests that expose the intended defect;
@@ -116,7 +119,8 @@ expected failures. A permanently red default-branch check hides genuine breakage
 
 Before requesting review, confirm that:
 
-- the directory follows `<Contributor><CodebaseName>` PascalCase;
+- the directory is a unique PascalCase problem name such as `BookingRace`;
+- the exercise README identifies its contributor;
 - setup works from a fresh virtual environment;
 - Django system checks and migrations are valid;
 - the documented failing tests fail for the intended business defect;
