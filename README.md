@@ -1,4 +1,4 @@
-# Django debugging interview lab
+# Debugging Interview Lab
 
 This repository contains independent, intentionally defective Django codebases.
 Each exercise models a production-maintenance interview: understand an unfamiliar
