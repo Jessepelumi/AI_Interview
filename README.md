@@ -31,15 +31,22 @@ contributor prefix visible while using one consistent folder-naming convention.
 
 ## Solve an exercise
 
-Fork the repository, clone your fork, and create a solution branch before editing:
+Fork and clone the repository, then enter the exercise you want to solve. From
+inside that codebase, update `main` and create a dedicated solution branch before
+editing:
 
 ```bash
+cd JesseCheckoutQuotes
 git switch main
 git pull --ff-only
 git switch -c YOUR_NAME/solve-JesseCheckoutQuotes
 ```
 
-Create a virtual environment from the repository root:
+Git branches apply to the entire repository even when created from an exercise
+directory. Working from inside the selected codebase simply keeps the session
+focused on that exercise.
+
+Create a local virtual environment and install the exercise's dependencies:
 
 ```bash
 python3 -m venv .venv
@@ -47,10 +54,9 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Enter the exercise and establish the starting failure:
+Establish the starting failure before changing production code:
 
 ```bash
-cd JesseCheckoutQuotes
 python manage.py test
 ```
 
