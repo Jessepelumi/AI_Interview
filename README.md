@@ -28,6 +28,7 @@ table below rather than in the folder name.
 | [`CheckoutQuotes`](CheckoutQuotes/) | Jesse | Business rules, money and rounding | 30–40 minutes |
 | [`ClinicAvailability`](ClinicAvailability/) | Jesse | ORM aggregation and tenant isolation | 40–50 minutes |
 | [`CreditWebhooks`](CreditWebhooks/) | Jesse | Transactions, units and safe retries | 45–60 minutes |
+| [`MeridianDisputes`](MeridianDisputes/) | Tony | ---- | 60 minutes |
 
 ## Solve an exercise
 
