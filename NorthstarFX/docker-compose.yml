@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: northstar
+      POSTGRES_USER: northstar
+      POSTGRES_PASSWORD: northstar
+    ports: ["5433:5432"]
+  redis:
+    image: redis:7.4-alpine
+    ports: ["6380:6379"]
