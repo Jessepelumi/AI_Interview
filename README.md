@@ -28,6 +28,13 @@ table below rather than in the folder name.
 | [`CheckoutQuotes`](CheckoutQuotes/) | Jesse | Business rules, money and rounding | 30–40 minutes |
 | [`ClinicAvailability`](ClinicAvailability/) | Jesse | ORM aggregation and tenant isolation | 40–50 minutes |
 | [`CreditWebhooks`](CreditWebhooks/) | Jesse | Transactions, units and safe retries | 45–60 minutes |
+| [`NorthstarFX`](NorthstarFX/) | Tony | FX pricing, caching and idempotent booking | 75–100 minutes |
+| [`MeridianDisputes`](MeridianDisputes/) | Tony | Card disputes, audit and processor callbacks | 60 minutes |
+| [`DublinTransfers`](DublinTransfers/) | Jesse | Banking transfers, regional settlement and scoped idempotency | 90–120 minutes |
+| [`PortfolioRisk`](PortfolioRisk/) | Jesse | Quant/trading risk, market data and desk isolation | 100–130 minutes |
+| [`CreatorPublishing`](CreatorPublishing/) | Jesse | Social scheduling, moderation and tenant integrations | 90–120 minutes |
+| [`OmnichannelReturns`](OmnichannelReturns/) | Jesse | Retail refunds, inventory and carrier routing | 100–130 minutes |
+| [`SubscriptionEntitlements`](SubscriptionEntitlements/) | Jesse | Billing webhooks, plan serialization and regional access | 110–140 minutes |
 
 ## Solve an exercise
 
@@ -36,14 +43,14 @@ inside that codebase, update `main` and create a dedicated solution branch befor
 editing:
 
 ```bash
+cd CheckoutQuotes
 git switch main
 git pull --ff-only
-git switch -c your_name-solutions
-cd CheckoutQuotes
+git switch -c your_name/solvecheckoutquotes
 ```
 
 Replace `your_name` with your name or account handle. Solution branches follow
-`<contributor_name>-solutions` in lowercase.
+`<contributor_name>/solve<codebasename>` in lowercase.
 
 Git branches apply to the entire repository even when created from an exercise
 directory. Working from inside the selected codebase simply keeps the session
