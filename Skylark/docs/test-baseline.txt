@@ -1,0 +1,1 @@
+Verified initial baseline: 5 failed, 7 passed. The application starts, Django checks pass, and migrations are current. These are intentional behavioral failures; import, collection, and configuration errors are not part of the exercise.
