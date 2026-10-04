@@ -1,0 +1,6 @@
+Django==5.2.5
+djangorestframework==3.16.1
+dj-database-url==3.0.1
+psycopg[binary]==3.2.9
+pytest==8.4.1
+pytest-django==4.11.1
