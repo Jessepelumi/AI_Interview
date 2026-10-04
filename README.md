@@ -28,6 +28,7 @@ table below rather than in the folder name.
 | [`CheckoutQuotes`](CheckoutQuotes/) | Jesse | Business rules, money and rounding | 30–40 minutes |
 | [`ClinicAvailability`](ClinicAvailability/) | Jesse | ORM aggregation and tenant isolation | 40–50 minutes |
 | [`CreditWebhooks`](CreditWebhooks/) | Jesse | Transactions, units and safe retries | 45–60 minutes |
+| [`Skylark`](Skylark/) | Jesse | Authorization, caching and asynchronous consistency | 60–90 minutes |
 | [`NorthstarFX`](NorthstarFX/) | Tony | FX pricing, caching and idempotent booking | 75–100 minutes |
 | [`MeridianDisputes`](MeridianDisputes/) | Tony | Card disputes, audit and processor callbacks | 60 minutes |
 | [`DublinTransfers`](DublinTransfers/) | Jesse | Banking transfers, regional settlement and scoped idempotency | 90–120 minutes |
